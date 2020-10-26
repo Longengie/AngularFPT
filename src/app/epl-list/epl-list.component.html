@@ -1,0 +1,40 @@
+<style>
+  #crenew {
+    float: right;
+    border-radius: 15px;
+    margin: 0;
+    width: 115px;
+    height: 35px;
+    padding: 2px;
+  }
+</style>
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 style="text-align: center;">Employee List</h2>
+      <a routerLink='/add' routerLinkActive="active" ><button class="btn btn-outline-primary" id="crenew" > Create New </button></a> <br><br>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees | async">
+            <td>{{employee.name}}</td>
+            <td>{{employee.position}}</td>
+            <td>{{employee.email}}</td>
+            <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+                <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
